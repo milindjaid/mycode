@@ -48,12 +48,33 @@ employeemMobileNo:[''],
     this.commonEmployeeFormGroup.setValue(employee) 
   }
 
-  public clearFormGroup(formGroup:FormGroup)
+  public clearFormGroup(formGroup:FormGroup):void
   {
     Object.keys(formGroup).forEach(formControlKey=>{
             let formControl=formGroup.get(formControlKey);
             formControl.setValue('');
     })
+  }
+
+  //===========Validate Whole Form Group=================
+  public validateWholeFormGroup(formGroup:FormGroup):void
+  {
+    Object.keys(formGroup).forEach(
+      (field)=>
+      {
+        const control=formGroup.get(field);
+        if(control instanceof FormControl)
+        {
+           control.markAsDirty({onlySelf:true});
+           control.markAsDirty({onlySelf:true})
+        }
+        else if( control instanceof FormGroup)
+        {
+            this.validateWholeFormGroup(control);
+        }
+
+      }
+    )
   }
 
 }

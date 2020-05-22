@@ -46,6 +46,10 @@ hr {
     color: dodgerblue;
     cursor: pointer;
   }
+
+  .error_msg{
+    color: red;
+  }
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

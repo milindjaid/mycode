@@ -3,6 +3,7 @@ import {FormGroup,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { TokenManagementService } from 'src/app/Services/token-management.service';
 import { LoginService } from 'src/app/Services/login.service';
+import { CommonValidationServiceService } from 'src/app/Services/common-validation-service.service';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +14,11 @@ export class LoginComponent implements OnInit {
   loginFormGroup:FormGroup;
 
   constructor(private formBuilder:FormBuilder,private router:Router,
-    private tokenService:TokenManagementService,private loginService:LoginService)
-  
-  { }
+    private tokenService:TokenManagementService,private loginService:LoginService
+    ,private commonValidationService:CommonValidationServiceService)
+    {
+
+    }
 
   ngOnInit(): void
   {
@@ -40,10 +43,11 @@ export class LoginComponent implements OnInit {
 
   authencateCredentials(formGroup:FormGroup)
   {
-   console.log(formGroup.value)
+   this.commonValidationService.validateWholeFormGroup(formGroup);
+  if(formGroup.valid)
+   {
    this.loginService.authenticateUser(formGroup.value).subscribe(
      (value)=>{
-         console.log(value);
          if(value!==null && value!=='')
          {
          this.tokenService.setTokenToLocalStorage(value);
@@ -56,6 +60,7 @@ export class LoginComponent implements OnInit {
               },
      (error)=>{ alert(error)}
    )
+   }
   }
   NavigateToSignUp()
   {

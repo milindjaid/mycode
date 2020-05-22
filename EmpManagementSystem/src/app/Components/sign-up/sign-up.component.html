@@ -5,31 +5,81 @@
         <hr style="width: 50%">
 
         <label style="color: blue"><b>  First Name :</b>:</label>
+        <div>
           <input type="text" formControlName="firstName" >
+          <div *ngIf="registerFormGroup.controls.firstName.invalid && (registerFormGroup.controls.firstName.dirty||
+                registerFormGroup.controls.firstName.touched )">
+          <div *ngIf="registerFormGroup.controls.firstName.errors.required"  class="error_msg">
+                First Name is required.
+          </div>    
+        </div>
+        </div>
           <br>
           <br>
           <label style="color: blue"><b> Last Name :</b> </label>
           <input type="password" formControlName="lastName" >
+          <div *ngIf="registerFormGroup.controls.lastName.invalid && (registerFormGroup.controls.lastName.dirty||
+                registerFormGroup.controls.lastName.touched )">
+          <div *ngIf="registerFormGroup.controls.lastName.errors.required"  class="error_msg">
+                Last Name is required.
+          </div>    
+        </div>
            <br>
            <br>
            <label style="color: blue"><b> Password : </b></label>
           <input type="password" formControlName="password" >
+          <div *ngIf="registerFormGroup.controls.password.invalid && (registerFormGroup.controls.password.dirty||
+                registerFormGroup.controls.password.touched )">
+          <div *ngIf="registerFormGroup.controls.password.errors.required"  class="error_msg">
+                Password is required.
+          </div>    
+        </div>
            <br>
            <br>
            <label style="color: blue"><b>    Email : </b></label>
-          <input type="text" formControlName="lastName" >
+          <input type="text" formControlName="email" >
+          <div *ngIf="registerFormGroup.controls.email.invalid && (registerFormGroup.controls.email.dirty||
+                registerFormGroup.controls.email.touched )">
+          <div *ngIf="registerFormGroup.controls.email.errors.required"  class="error_msg">
+                Email is required.
+          </div>    
+          </div>
            <br>
            <br>
            <label style="color: blue"><b>  Address :</b> </label>
+           <div>
           <input type="text" formControlName="address">
+          <div *ngIf="registerFormGroup.controls.address.invalid && (registerFormGroup.controls.address.dirty||
+                registerFormGroup.controls.address.touched )">
+          <div *ngIf="registerFormGroup.controls.address.errors.required"  class="error_msg">
+                Address is required.
+          </div>    
+          </div>
+          </div>
            <br>
            <br>
     <label style="color: blue"><b>   Date Of Birth : </b></label>
+          <div>
           <input type="date" formControlName="dob" >
+          <div *ngIf="registerFormGroup.controls.dob.invalid && (registerFormGroup.controls.dob.dirty||
+          registerFormGroup.controls.dob.touched )">
+         <div *ngIf="registerFormGroup.controls.dob.errors.required"  class="error_msg">
+          Date Of Birth is required.
+         </div>    
+         </div>
+         </div>
            <br>
            <br>
-<label style="color: blue"><b>   Organization Name : </b></label>
+          <label style="color: blue"><b>Organization Name : </b></label>
+          <div>
           <input type="text" formControlName="company" >
+          <div *ngIf="registerFormGroup.controls.company.invalid && (registerFormGroup.controls.company.dirty||
+                registerFormGroup.controls.company.touched )">
+          <div *ngIf="registerFormGroup.controls.company.errors.required"  class="error_msg">
+                Company is required.
+          </div>    
+          </div>
+          </div>
            <br>
            <br>
 

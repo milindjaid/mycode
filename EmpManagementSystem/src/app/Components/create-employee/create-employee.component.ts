@@ -27,15 +27,16 @@ export class CreateEmployeeComponent implements OnInit {
 
   SubmitEmployeeRecords(EmployeeFormGroup:FormGroup)
   {
+    this.commonValidationService.validateWholeFormGroup(EmployeeFormGroup)
+    if(EmployeeFormGroup.valid)
+    {
     this.matDialog.closeAll();
-   console.log(EmployeeFormGroup.value);
    if(EmployeeFormGroup.get('empTrId').value==='')
    {
      this.employeeService.submitEmployeeRecord(EmployeeFormGroup.value).subscribe((flag)=>{
-     console.log(flag)
      this.snackBarService.openSnackBar(flag)
      this.commonValidationService.setStateToSubject("Load Employee List.")
-     this.onClear(EmployeeFormGroup)
+     this.onClear()
     });
    }
    else
@@ -43,11 +44,10 @@ export class CreateEmployeeComponent implements OnInit {
     this.employeeService.updateEmployeeRecord(EmployeeFormGroup.value).subscribe((flag)=>{
     this.commonValidationService.setStateToSubject("Load Employee List.")
     this.snackBarService.openSnackBar(flag)
-    this.onClear(EmployeeFormGroup)
-      console.log(flag)
+    this.onClear()
      });
    }
-
+  }
   }
 
   CloseEmployeePopUp()
@@ -55,7 +55,7 @@ export class CreateEmployeeComponent implements OnInit {
     this.matDialog.closeAll();
   }
 
-  onClear(EmployeeFormGroup)
+  onClear()
   {
     this.employeesFormGroup=this.commonValidationService.InitializeCommonFormGroup()
   }

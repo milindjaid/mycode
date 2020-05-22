@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignUpService } from 'src/app/Services/sign-up.service';
+import { CommonValidationServiceService } from 'src/app/Services/common-validation-service.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,7 +11,8 @@ import { SignUpService } from 'src/app/Services/sign-up.service';
 })
 export class SignUpComponent implements OnInit {
    registerFormGroup:FormGroup
-  constructor(private formBuilder:FormBuilder,private router:Router,private signUpService:SignUpService) { }
+  constructor(private formBuilder:FormBuilder,private router:Router,private signUpService:SignUpService,
+    private commonValidationService:CommonValidationServiceService ) { }
 
   ngOnInit(): void 
   {
@@ -39,10 +41,14 @@ export class SignUpComponent implements OnInit {
 
   registerUserRecords(formGroup:FormGroup)
   {
-   this.signUpService.registerRecords(formGroup.value).subscribe(
+    this.commonValidationService.validateWholeFormGroup(formGroup);
+    if(formGroup.valid)
+    {
+    this.signUpService.registerRecords(formGroup.value).subscribe(
      (flag)=>{
               alert(flag)
              }
-   );
+    );
+    }
   }
 }
