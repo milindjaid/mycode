@@ -1,0 +1,36 @@
+
+<button id="Logout" (click)="logout()" class="registerbtn logoutButton">Log Out </button>
+
+<button id="Logout" (click)="createEmployee()" class="registerbtn createButton" >Create Employee </button>
+<br>
+<br>
+<br>
+<hr>
+<div>
+<table>
+<thead>
+    <tr>
+    <th>Employee ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Address</th>
+    <th>Date Of Birth</th>
+    <th>Mobile No.</th>
+    <th>City</th>
+    </tr>
+</thead>
+<tbody>
+<tr *ngFor="let employee of EmployeesList; let i=index;trackBy:trackByEmployeeId">
+<td>{{employee.employeeId}}</td>
+<td>{{employee.employeefirstName}}</td>
+<td>{{employee.employeelastName}}</td>
+<td>{{employee.employeeAddress}}</td>
+<td>{{employee.employeeDob}}</td>
+<td>{{employee.employeemMobileNo}}</td>
+<td>{{employee.employeeCity}}</td>
+<td><button id="update" (click)="onUpdate(employee)" class="registerbtn" style="height: 35px;width: 85px" >Update </button></td>
+<td><button id="delete" (click)="onDelete(employee)" class="registerbtn" style="height: 35px;width: 85px" >Delete </button></td>
+</tr>
+</tbody>
+</table>
+</div>

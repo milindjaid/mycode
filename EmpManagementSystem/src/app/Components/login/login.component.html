@@ -1,0 +1,16 @@
+<form [formGroup]="loginFormGroup" style="text-align: center" class="container">
+
+  <label style="color: blue"> <b> UserName:</b></label>
+    <input type="text" formControlName="userName" >
+    <br>
+    <br>
+    <label style="color: blue"><b>Password: </b></label>
+    <input type="password" formControlName="password" >
+     <br>
+     <br>
+     <hr style="width: 50%">
+    <button id="Submit" (click)="authencateCredentials(loginFormGroup)" class="registerbtn">Login</button>
+
+    <br>
+     Create an account? <a (click)="NavigateToSignUp()" >Sign up</a>
+</form>

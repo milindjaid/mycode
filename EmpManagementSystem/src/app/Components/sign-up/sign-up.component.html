@@ -1,0 +1,41 @@
+<form [formGroup]="registerFormGroup" class="container" style="text-align: center">
+
+        <h2>Register</h2>
+        <p>Please fill in this form to create an account.</p>
+        <hr style="width: 50%">
+
+        <label style="color: blue"><b>  First Name :</b>:</label>
+          <input type="text" formControlName="firstName" >
+          <br>
+          <br>
+          <label style="color: blue"><b> Last Name :</b> </label>
+          <input type="password" formControlName="lastName" >
+           <br>
+           <br>
+           <label style="color: blue"><b> Password : </b></label>
+          <input type="password" formControlName="password" >
+           <br>
+           <br>
+           <label style="color: blue"><b>    Email : </b></label>
+          <input type="text" formControlName="lastName" >
+           <br>
+           <br>
+           <label style="color: blue"><b>  Address :</b> </label>
+          <input type="text" formControlName="address">
+           <br>
+           <br>
+    <label style="color: blue"><b>   Date Of Birth : </b></label>
+          <input type="date" formControlName="dob" >
+           <br>
+           <br>
+<label style="color: blue"><b>   Organization Name : </b></label>
+          <input type="text" formControlName="company" >
+           <br>
+           <br>
+
+          <button id="Submit" (click)="registerUserRecords(registerFormGroup)" class="registerbtn">Register</button>
+      
+          <br>
+          <br>
+           Already have an account? <a (click)="NavigateToLogin()" style="color:green;cursor: pointer;">Sign in</a>
+      </form>

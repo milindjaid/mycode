@@ -1,0 +1,35 @@
+
+<button id="close" (click)="CloseEmployeePopUp()" class="registerbtn">Close</button>
+
+<form [formGroup]="employeesFormGroup" class="container" style="text-align: center">
+    <h2>Create Employee</h2>
+    <label style="color: blue"><b>Employee ID :</b></label>
+      <input type="text" formControlName="employeeId" > 
+    <label style="color: blue"><b> First Name :</b></label>
+      <input type="text" formControlName="employeefirstName" >
+      <br>
+      <br>
+      <label style="color: blue"><b> Last Name :</b> </label>
+      <input type="text" formControlName="employeelastName" >
+       <label style="color: blue"><b> Address : </b></label>
+      <input type="text" formControlName="employeeAddress" >
+       <br>
+       <br>
+       <label style="color: blue"><b>Date Of Birth : </b></label>
+      <input type="date" formControlName="employeeDob" >
+       <label style="color: blue"><b>  Mobile No. :</b> </label>
+      <input type="text" formControlName="employeemMobileNo">
+       <br>
+       <br>
+       <div style="position: relative;right: 112px;">
+      <label style="color: blue;"><b>  City : </b></label>
+      <input type="text" formControlName="employeeCity" >
+      </div>
+       <br>
+       <div>
+      <button id="Submit" (click)="SubmitEmployeeRecords(employeesFormGroup)" class="registerbtn">Save </button>
+      <button id="Submit" (click)="onClear(employeesFormGroup)" class="registerbtn" style="left: 11px;
+      position: relative;">Clear </button>
+      </div>
+  
+  </form>
